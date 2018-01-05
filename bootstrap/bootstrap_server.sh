@@ -5,6 +5,13 @@ projects[1]=walker
 
 source common/common.sh
 
+function stop_working() {
+    pkill -f "$prefix/common/loop_fg.sh"
+    pkill -f magneticod
+    pkill -f searchd
+    return 0
+}
+
 function install() {
     mkdir -p "$prefix/bin"
     for project in ${projects[*]}; do
@@ -32,6 +39,7 @@ function run() {
     return 0
 }
 
+sure_run stop_working
 sure_run install
 echo "Installation done." >&2
 sure_run run
