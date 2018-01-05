@@ -16,4 +16,9 @@ function install_magneticod() {
     cp "$GOPATH/bin/magneticod" "$prefix/bin/"
 }
 
-sure_run install_magneticod
+function install_sphinx() {
+    sed -i "s|__PREFIX__|${prefix}|g" "$prefix/walker/sphinx.conf"
+}
+
+#sure_run install_magneticod
+sure_run install_sphinx

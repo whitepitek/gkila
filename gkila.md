@@ -11,8 +11,23 @@ command: `update_index`
 
 Update the "stable" index merging in with the "new" one.
 return 0 on success, 1 on failure
-### Wolker
+### Walker
 Walk through DHT, find torrents, add them to index.
+command: `walker`
+
+This is a wrapper script which runs magneticod and builds a database with the
+table "files" with the following scheme: `uint64 id, char[40] hash, char[] path`
+
+command: `get_index_updates [--all]`
+
+Print new items in csv:
+
+    "id","name forms\, space separated"
+    "id","name forms\, space separated"
+    ...
+
+If `--all` specified, print all the items; otherwise print only new ones since
+the last run.
 ### Search
 command: `search [--relevance <relevance>] <keyword> [keyword [...]]`
 
