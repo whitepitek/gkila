@@ -1,18 +1,22 @@
 # Gkila
 
 ## Components
-### Index
-command: `add_word <hash> <word>`
-
-Add a keyword <word> corresponding to <hash> to the "new" index
-return 0 on success, 1 on failure
-
-command: `update_index`
-
-Update the "stable" index merging in with the "new" one.
-return 0 on success, 1 on failure
-### Wolker
+### Walker
 Walk through DHT, find torrents, add them to index.
+command: `get_index_updates [--all]`
+
+Print new items in csv:
+
+    "id","name forms, space separated"
+    "id","name forms, space separated"
+    ...
+
+If `--all` specified, print all the items; otherwise print only new ones since
+the last run.
+
+command: `updater`
+
+Run index updates and merges once in a while
 ### Search
 command: `search [--relevance <relevance>] <keyword> [keyword [...]]`
 

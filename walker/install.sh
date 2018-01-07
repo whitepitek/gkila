@@ -14,6 +14,11 @@ function install_magneticod() {
     sed -i 's/DROP INDEX/DROP INDEX IF EXISTS/g' persistence/sqlite3.go
     go install magnetico/magneticod
     cp "$GOPATH/bin/magneticod" "$prefix/bin/"
+    cd $prefix"
 }
 
 sure_run install_magneticod
+
+mkdir -p $prefix/sphinx_binlog
+sed -i "s|__PREFIX__|${prefix}|g" "$prefix/walker/sphinx.conf"
+sure_run indexer --config "$prefix/walker/sphinx.conf" --all
