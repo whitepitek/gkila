@@ -14,7 +14,7 @@ function install_magneticod() {
     sed -i 's/DROP INDEX/DROP INDEX IF EXISTS/g' persistence/sqlite3.go
     go install magnetico/magneticod
     cp "$GOPATH/bin/magneticod" "$prefix/bin/"
+    cd $prefix"
 }
 
 sure_run install_magneticod
-sure_run cp "$prefix/walker/get_index_updates.py" "$prefix/bin/get_index_updates"
