@@ -1,23 +1,8 @@
 # Gkila
 
 ## Components
-### Index
-command: `add_word <hash> <word>`
-
-Add a keyword <word> corresponding to <hash> to the "new" index
-return 0 on success, 1 on failure
-
-command: `update_index`
-
-Update the "stable" index merging in with the "new" one.
-return 0 on success, 1 on failure
 ### Walker
 Walk through DHT, find torrents, add them to index.
-command: `walker`
-
-This is a wrapper script which runs magneticod and builds a database with the
-table "files" with the following scheme: `uint64 id, char[40] hash, char[] path`
-
 command: `get_index_updates [--all]`
 
 Print new items in csv:

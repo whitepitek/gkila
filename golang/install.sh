@@ -1,7 +1,5 @@
 #!/bin/bash
 
-exit 0 # FIXME
-
 source common/common.sh
 
 set -e

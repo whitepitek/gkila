@@ -2,6 +2,8 @@
 
 projects[0]=golang
 projects[1]=walker
+projects[2]=client
+projects[3]=search
 
 source common/common.sh
 
