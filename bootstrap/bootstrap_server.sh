@@ -3,7 +3,6 @@
 projects[0]=golang
 projects[1]=walker
 projects[2]=client
-projects[3]=search
 
 source common/common.sh
 
@@ -16,6 +15,7 @@ fi
 function stop_working() {
     pkill -f "$prefix/common/loop_fg.sh"
     pkill -f magneticod
+    searchd --config $prefix/walker/sphinx.conf --stopwait
     pkill -f searchd
     return 0
 }

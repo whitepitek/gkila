@@ -18,3 +18,7 @@ function install_magneticod() {
 }
 
 sure_run install_magneticod
+
+mkdir -p $prefix/sphinx_binlog
+sed -i "s|__PREFIX__|${prefix}|g" "$prefix/walker/sphinx.conf"
+sure_run indexer --config "$prefix/walker/sphinx.conf" --all
