@@ -3,6 +3,7 @@
 projects[0]=golang
 projects[1]=walker
 projects[2]=client
+projects[3]=search
 
 source common/common.sh
 
@@ -56,8 +57,8 @@ function run() {
     return 0
 }
 
-sure_run stop_working
 sure_run install
 echo "Installation done." >&2
+sure_run stop_working
 sure_run run
 echo "Running done." >&2
