@@ -24,6 +24,8 @@ def get_file_ids(keywords):
             SELECT *
             FROM main
             WHERE MATCH(%s)
+            LIMIT 100
+            OPTION ranker=wordcount, max_matches=100
             ''', (' '.join(keywords)))
         cursor.execute(*query)
         ids = [fid for fid, in cursor]
