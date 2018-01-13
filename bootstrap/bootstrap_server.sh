@@ -15,9 +15,11 @@ fi
 
 function stop_working() {
     pkill -f "$prefix/common/loop_fg.sh"
+    pkill -f updater
     pkill -f magneticod
     searchd --config $prefix/walker/sphinx.conf --stopwait
     pkill -f searchd
+    pkill -f searchserver.py
     return 0
 }
 
